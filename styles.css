@@ -1,0 +1,401 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #fff;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(255, 105, 180, 0.8) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 165, 0, 0.8) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(255, 20, 147, 0.8) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 69, 0, 0.8) 0%, transparent 50%),
+        radial-gradient(circle at 20% 20%, rgba(255, 105, 180, 0.8) 0%, transparent 50%),
+        radial-gradient(circle at 60% 60%, rgba(255, 140, 0, 0.8) 0%, transparent 50%),
+        linear-gradient(135deg, #ff6b6b 0%, #ffa500 25%, #ff69b4 50%, #ff4500 75%, #ff1493 100%);
+    background-size: 400% 400%, 400% 400%, 400% 400%, 400% 400%, 400% 400%, 400% 400%, 100% 100%;
+    animation: meshGradient 12s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header and Navigation */
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 20px 0;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #007bff;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+
+@keyframes meshGradient {
+    0% {
+        background-position: 
+            0% 0%,
+            100% 100%,
+            50% 50%,
+            100% 0%,
+            0% 100%,
+            50% 50%,
+            0% 0%;
+    }
+    16.66% {
+        background-position: 
+            25% 0%,
+            75% 100%,
+            75% 50%,
+            75% 100%,
+            25% 0%,
+            25% 100%,
+            0% 0%;
+    }
+    33.33% {
+        background-position: 
+            50% 0%,
+            50% 100%,
+            100% 50%,
+            50% 100%,
+            50% 0%,
+            0% 100%,
+            0% 0%;
+    }
+    50% {
+        background-position: 
+            75% 0%,
+            25% 100%,
+            75% 50%,
+            25% 100%,
+            75% 0%,
+            75% 100%,
+            0% 0%;
+    }
+    66.66% {
+        background-position: 
+            100% 0%,
+            0% 100%,
+            50% 50%,
+            0% 100%,
+            100% 0%,
+            50% 50%,
+            0% 0%;
+    }
+    83.33% {
+        background-position: 
+            75% 0%,
+            25% 100%,
+            25% 50%,
+            25% 100%,
+            75% 0%,
+            100% 100%,
+            0% 0%;
+    }
+    100% {
+        background-position: 
+            0% 0%,
+            100% 100%,
+            50% 50%,
+            100% 0%,
+            0% 100%,
+            50% 50%,
+            0% 0%;
+    }
+}
+
+.emerge-text {
+    font-size: min(7rem, 15vw);
+    font-family: Arial, sans-serif;
+    color: #fff;
+    font-weight: 800;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    animation: appear 2s ease-out forwards;
+    margin-bottom: min(50px, 10vh);
+}
+
+/* About page specific style */
+.hero .emerge-text.about-text {
+    font-size: min(4rem, 8vw);
+    font-family: Arial, sans-serif;
+    font-weight: 800;
+    white-space: nowrap;
+    margin-bottom: min(50px, 10vh);
+}
+
+/* Remove the absolute positioning for about page nav */
+.hero .about-text + .hero-nav {
+    position: static;
+}
+
+.hero-nav {
+    opacity: 0;
+    animation: fadeIn 1s ease-out 2s forwards;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(15px, 3vw, 30px);
+}
+
+.hero-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: min(1.8rem, 5vw);
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+}
+
+.hero-nav a:hover {
+    color: #fff;
+    transform: translateY(-2px) scale(1.15);
+    text-shadow: 
+        0 0 10px rgba(255, 255, 255, 0.8),
+        0 0 20px rgba(255, 255, 255, 0.6),
+        0 0 30px rgba(255, 255, 255, 0.4),
+        2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* About Section */
+.about {
+    padding: 100px 0;
+    background: transparent;
+}
+
+.about h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.about p {
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.skills {
+    margin-top: 40px;
+}
+
+.skills h3 {
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+.skills ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+}
+
+.skills li {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: #fff;
+    backdrop-filter: blur(5px);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.skills li:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Contact Section */
+.contact {
+    padding: 100px 0;
+    background: transparent;
+}
+
+.contact h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    font-size: 1rem;
+    color: #fff;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+button {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    padding: 12px 30px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Social Links */
+.social-links {
+    margin-bottom: min(40px, 8vh);
+    opacity: 0;
+    animation: fadeIn 1s ease-out 1s forwards;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(20px, 5vw, 40px);
+}
+
+.social-links a {
+    color: #fff;
+    font-size: min(3rem, 8vw);
+    transition: all 0.3s ease;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    color: #fff;
+    transform: translateY(-2px) scale(1.15);
+    text-shadow: 
+        0 0 10px rgba(255, 255, 255, 0.8),
+        0 0 20px rgba(255, 255, 255, 0.6),
+        0 0 30px rgba(255, 255, 255, 0.4),
+        2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+        filter: blur(10px);
+    }
+    50% {
+        opacity: 0.5;
+        transform: translateY(10px);
+        filter: blur(5px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Footer */
+footer {
+    background: rgba(0, 0, 0, 0.1);
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    backdrop-filter: blur(5px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+}
+
+ 
