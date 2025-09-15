@@ -19,6 +19,10 @@ body {
         linear-gradient(135deg, #ff6b6b 0%, #ffa500 25%, #ff69b4 50%, #ff4500 75%, #ff1493 100%);
     background-size: 400% 400%, 400% 400%, 400% 400%, 400% 400%, 400% 400%, 400% 400%, 100% 100%;
     animation: meshGradient 12s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+    /* Prevent zoom on double tap for mobile */
+    touch-action: manipulation;
+    /* Improve scrolling performance on mobile */
+    -webkit-overflow-scrolling: touch;
 }
 
 .container {
@@ -392,9 +396,162 @@ footer {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+/* iPhone and small mobile devices */
+@media (max-width: 480px) {
     .container {
-        padding: 0 15px;
+        padding: 0 20px;
+        max-width: 100%;
+    }
+    
+    .emerge-text {
+        font-size: min(4.5rem, 12vw);
+        margin-bottom: min(40px, 8vh);
+        line-height: 1.1;
+    }
+    
+    .emerge-text.about-text {
+        font-size: min(3rem, 10vw);
+        white-space: normal;
+        text-align: center;
+    }
+    
+    .hero-nav {
+        flex-direction: row;
+        gap: clamp(8px, 2vw, 15px);
+        margin-top: min(30px, 6vh);
+        flex-wrap: nowrap;
+        justify-content: center;
+    }
+    
+    .hero-nav a {
+        font-size: min(1.2rem, 4.5vw);
+        padding: 6px 10px;
+        text-align: center;
+        min-width: 80px;
+        white-space: nowrap;
+    }
+    
+    .social-links {
+        gap: clamp(25px, 6vw, 35px);
+        margin-bottom: min(30px, 6vh);
+    }
+    
+    .social-links a {
+        font-size: min(2.5rem, 10vw);
+    }
+    
+    /* Ensure proper spacing on mobile */
+    .hero {
+        padding: 20px 0;
+        min-height: 100vh;
+        min-height: 100dvh; /* Dynamic viewport height for mobile browsers */
+    }
+}
+
+/* iPad and tablet devices */
+@media (min-width: 481px) and (max-width: 768px) {
+    .container {
+        padding: 0 30px;
+    }
+    
+    .emerge-text {
+        font-size: min(5.5rem, 10vw);
+        margin-bottom: min(45px, 9vh);
+    }
+    
+    .emerge-text.about-text {
+        font-size: min(3.5rem, 7vw);
+    }
+    
+    .hero-nav {
+        gap: clamp(20px, 4vw, 35px);
+    }
+    
+    .hero-nav a {
+        font-size: min(1.6rem, 4vw);
+    }
+    
+    .social-links {
+        gap: clamp(30px, 5vw, 40px);
+    }
+    
+    .social-links a {
+        font-size: min(2.8rem, 7vw);
+    }
+}
+
+/* Small desktop and large tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        padding: 0 40px;
+    }
+    
+    .emerge-text {
+        font-size: min(6rem, 8vw);
+    }
+    
+    .emerge-text.about-text {
+        font-size: min(4rem, 6vw);
+    }
+}
+
+/* Ensure touch targets are large enough for mobile */
+@media (max-width: 768px) {
+    .hero-nav a,
+    .social-links a {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Prevent horizontal scroll on mobile */
+    body {
+        overflow-x: hidden;
+    }
+    
+    /* Improve text readability on mobile */
+    .emerge-text,
+    .hero-nav a,
+    .social-links a {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+/* Landscape orientation adjustments for mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero {
+        min-height: 100vh;
+        min-height: 100dvh;
+    }
+    
+    .emerge-text {
+        font-size: min(3.5rem, 8vw);
+        margin-bottom: min(20px, 4vh);
+    }
+    
+    .emerge-text.about-text {
+        font-size: min(2.5rem, 6vw);
+    }
+    
+    .hero-nav {
+        flex-direction: row;
+        gap: clamp(15px, 3vw, 25px);
+        margin-top: min(20px, 4vh);
+    }
+    
+    .hero-nav a {
+        font-size: min(1.3rem, 4vw);
+    }
+    
+    .social-links {
+        gap: clamp(20px, 4vw, 30px);
+        margin-bottom: min(20px, 4vh);
+    }
+    
+    .social-links a {
+        font-size: min(2rem, 6vw);
     }
 }
 
